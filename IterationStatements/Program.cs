@@ -1,4 +1,6 @@
-﻿namespace IterationStatements
+﻿using System.Data.SqlTypes;
+
+namespace IterationStatements
 {
     public class Program
     {
@@ -54,17 +56,16 @@
             
             return isNumPositive;
         }
-        
+
         // 6. Write a method that reads the age of a candidate and determines if they are eligible to vote.
         //    - Method Signature: bool CanVote(int age)
         //    - Returns true if the candidate can vote, false otherwise.
-        //    - Hint: Use `int.Parse()` or the safer `int.TryParse()` for extra practice in handling user input.
-        public static bool CanVote( int num1 )
+        public static bool CanVote( int age )
         {
-            bool canVote = ( num1 >= 18 ) ? true : false; 
+            bool canVote = ( age >= 18 ) ? true : false; 
             
             return canVote;
-        }
+        } 
         
         // Heatin' Up Section:
         // 1. Write a method that checks if an integer (provided by the user) is within the range of -10 to 10.
@@ -76,7 +77,6 @@
             
             return numInRange;
         }
-        
         
         // 2. Write a method that displays the multiplication table (from 1 to 12) for a given integer.
         //    - Method Signature: void DisplayMultiplicationTable(int number)
@@ -99,32 +99,72 @@
         
         static void Main(string[] args)
         {
-            int num1 = -5;
-            int num2 = 2;
+            // print numbers -1000 to 1000 to the console
+            PrintNumbers();
             
-            // PrintNumbers();
-            //PrintEveryThirdNumber();
+            // print every 3rd number from 3 - 999
+            PrintEveryThirdNumber();
             
-            /* if (AreNumbersEqual(num1, num2))
-            {
-                Console.WriteLine("Numbers are equal");
+            // Prompt the user for the first number
+            Console.Write("Enter the first number to compare equality: ");
+            string input1 = Console.ReadLine();
+
+            // Prompt the user for the second number
+            Console.Write("Enter the second number to compare equality: ");
+            string input2 = Console.ReadLine();
+
+            // Convert the string inputs to integers
+            // Using int.Parse() will throw an exception if the input is not a valid integer.
+            // For more robust error handling, consider using int.TryParse().
+            int num1 = int.Parse(input1);
+            int num2 = int.Parse(input2);
+
+            // check if the two user inputted numbers are equal
+            if (AreNumbersEqual(num1, num2)) {
+                    Console.WriteLine($"The numbers you entered {num1} and {num2} are equal");
+            } else {
+                    Console.WriteLine($"The numbers you entered {num1} and {num2} are not equal");
             }
-            else
-            {
-                Console.WriteLine("Numbers are not equal");
-            } */
-           
-            if (IsInRange( num1 ) )
-            {
-                Console.WriteLine("Number is in range");
-            }
-            else
-            {
-                Console.WriteLine("Number is not in range");
+
+            // check if first number entered by user is even or not
+            if (IsEven(num1)) {
+                Console.WriteLine($"{num1} is even");
+            }else {
+                Console.WriteLine($"{num1} is not even");
             }
             
+            // check if first number entered by user is positive
+            if (IsPositive(num1)) {
+                Console.WriteLine($"{num1} is a positive number");
+            }else {
+                Console.WriteLine($"{num1} is not a positive number");
+            }
+            
+            // check if first number from user is between -10 and 10
+            if (IsInRange( num1 ) ) {
+                    Console.WriteLine($"Number {num1} is between the range of -10 and 10");
+            } else {
+                    Console.WriteLine($"Number {num1} is not between the range of -10 and 10");
+            }
+            
+            // Prompt the user for the second number
+            Console.Write("Enter age of person to determine voter eligibility: ");
+            string age = Console.ReadLine();
+
+            // Convert the string inputs to integers
+            // Using int.Parse() will throw an exception if the input is not a valid integer.
+            // For more robust error handling, consider using int.TryParse().
+            num1 = int.Parse(age);
+
+            if (CanVote( num1 ) ) {
+                    Console.WriteLine($"Person of {num1} years is eligible to vote");
+            } else {
+                    Console.WriteLine($"Person of {num1} years is not eligible to vote");
+            }
+            
+            // display multiplication table for 12 numbers
+            Console.WriteLine("\nDisplay multiplication table for 12 numbers");
             DisplayMultiplicationTable( 12 );
-            
         }
     }
 }
