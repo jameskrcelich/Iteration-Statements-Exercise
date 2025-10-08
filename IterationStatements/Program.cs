@@ -15,6 +15,7 @@ namespace IterationStatements
             {
                 Console.WriteLine($"    {i}");
             }
+            Console.WriteLine("\n");
         }
         
         // 2. Write a method that prints every third number from 3 to 999 to the console.
@@ -125,19 +126,19 @@ namespace IterationStatements
             } else {
                     Console.WriteLine($"The numbers you entered {num1} and {num2} are not equal");
             }
-
+            
             // check if first number entered by user is even or not
             if (IsEven(num1)) {
-                Console.WriteLine($"{num1} is even");
+                    Console.WriteLine($"{num1} is even");
             }else {
-                Console.WriteLine($"{num1} is not even");
+                    Console.WriteLine($"{num1} is not even");
             }
             
             // check if first number entered by user is positive
             if (IsPositive(num1)) {
-                Console.WriteLine($"{num1} is a positive number");
+                    Console.WriteLine($"{num1} is a positive number");
             }else {
-                Console.WriteLine($"{num1} is not a positive number");
+                    Console.WriteLine($"{num1} is not a positive number");
             }
             
             // check if first number from user is between -10 and 10
@@ -148,7 +149,7 @@ namespace IterationStatements
             }
             
             // Prompt the user for the second number
-            Console.Write("Enter age of person to determine voter eligibility: ");
+            Console.Write("\nEnter age of person to determine voter eligibility: ");
             string age = Console.ReadLine();
 
             // Convert the string inputs to integers
